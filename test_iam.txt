@@ -1,0 +1,1 @@
+hello from EC2 with IAM
