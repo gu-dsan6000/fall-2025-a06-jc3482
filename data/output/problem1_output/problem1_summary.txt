@@ -1,0 +1,6 @@
+Total log lines analyzed: 27410336
+
+Log level distribution:
+INFO: 27389482
+ERROR: 11259
+WARN: 9595

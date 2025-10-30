@@ -1,0 +1,6 @@
+Total log lines analyzed: 1601
+
+Log level distribution:
+INFO: 1573
+ERROR: 14
+WARN: 14

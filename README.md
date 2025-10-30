@@ -202,12 +202,14 @@ log_entry,log_level
 ```
 Total log lines processed: 3,234,567
 Total lines with log levels: 3,100,234
+
 Unique log levels found: 4
 
 Log level distribution:
   INFO  :    125,430 (40.45%)
   WARN  :        342 ( 0.01%)
   ...
+
 ```
 
 ### Problem 2: Cluster Usage Analysis - 50 Points

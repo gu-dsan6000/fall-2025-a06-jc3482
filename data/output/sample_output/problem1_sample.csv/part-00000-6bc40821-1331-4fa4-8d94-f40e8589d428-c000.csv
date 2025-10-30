@@ -1,0 +1,11 @@
+value,log_level
+17/03/29 10:03:22 INFO storage.ShuffleBlockFetcherIterator: Getting 20 non-empty blocks out of 20 blocks,INFO
+17/03/29 10:03:23 INFO executor.Executor: Finished task 12.0 in stage 4.0 (TID 73). 2851 bytes result sent to driver,INFO
+17/03/29 10:03:25 INFO storage.BlockManager: Found block rdd_9_17 locally,INFO
+17/03/29 10:04:57 INFO executor.Executor: Finished task 13.0 in stage 3.0 (TID 54). 1139 bytes result sent to driver,INFO
+"17/03/29 10:04:57 INFO storage.MemoryStore: Block broadcast_5 stored as values in memory (estimated size 7.5 KB, free 24.1 MB)",INFO
+17/03/29 10:11:15 INFO executor.Executor: Running task 5.0 in stage 4.0 (TID 65),INFO
+17/03/29 10:11:15 INFO executor.Executor: Running task 11.0 in stage 4.0 (TID 71),INFO
+"17/03/29 10:02:54 INFO spark.MapOutputTrackerWorker: Don't have map outputs for shuffle 1, fetching them",INFO
+"17/03/29 10:07:22 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: Set(yarn, curi); users with modify permissions: Set(yarn, curi)",INFO
+17/03/29 10:09:29 INFO netty.NettyBlockTransferService: Server created on 52643,INFO

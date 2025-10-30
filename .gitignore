@@ -44,11 +44,13 @@ spark-cluster-key.pem
 cluster-config.txt
 cluster-ips.txt
 ssh_to_master_node.sh
+setup-spark-cluster.sh
 
 # Data files (raw data downloaded and processed)
 data/raw/
 *.gz
 *.tar.gz
+data/sample/
 
 # Spark logs
 *.log
