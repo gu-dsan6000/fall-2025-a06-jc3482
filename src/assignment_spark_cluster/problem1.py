@@ -4,33 +4,33 @@ import os
 
 def main():
     # -----------------------------------
-    # 初始化 SparkSession（在 master 上执行）
+    # Initiate SparkSession（on master）
     # -----------------------------------
     spark = (
         SparkSession.builder
         .appName("Problem1_LogLevelDistribution")
-        .master("local[*]")  # ✅ 本地读文件，安全可靠
+        .master("local[*]")  
         .getOrCreate()
     )
 
     # -----------------------------------
-    # 路径配置
+    # config path
     # -----------------------------------
     base_dir = "/home/ubuntu/fall-2025-a06-jc3482/data"
     input_dir = f"file://{base_dir}/raw/*/*.log"
     output_dir = f"{base_dir}/output"
     os.makedirs(output_dir, exist_ok=True)
 
-    print(f"📂 Reading logs from: {input_dir}")
+    print(f" Reading logs from: {input_dir}")
 
     # -----------------------------------
-    # 读取日志文件
+    # read logs from raw data path (not sample but all)
     # -----------------------------------
     logs = spark.read.text(input_dir)
-    print(f"✅ Total lines loaded: {logs.count():,}")
+    print(f" Total lines loaded: {logs.count():,}")
 
     # -----------------------------------
-    # 提取日志等级
+    # use regular expression to extract levels of logs
     # -----------------------------------
     logs = logs.withColumn(
         "log_level",
@@ -38,7 +38,7 @@ def main():
     ).filter(col("log_level") != "")
 
     # -----------------------------------
-    # 统计 log level 分布
+    # stats on  log level 
     # -----------------------------------
     counts = logs.groupBy("log_level").count().orderBy("count", ascending=False)
 
@@ -49,7 +49,7 @@ def main():
     )
 
     # -----------------------------------
-    # 随机抽样 10 条日志行
+    # sample 10 log rows
     # -----------------------------------
     sample_logs = logs.sample(False, 0.001).limit(10)
     sample_logs.coalesce(1).write.csv(
@@ -59,7 +59,7 @@ def main():
     )
 
     # -----------------------------------
-    # 生成 summary 文件
+    # make summary documents
     # -----------------------------------
     total = logs.count()
     summary_path = os.path.join(output_dir, "problem1_summary.txt")
@@ -70,7 +70,7 @@ def main():
         for row in counts.collect():
             f.write(f"{row['log_level']}: {row['count']}\n")
 
-    print("\n✅ Done! Outputs saved to:")
+    print("\nOutputs saved to:")
     print(f" - {output_dir}/problem1_counts.csv/")
     print(f" - {output_dir}/problem1_sample.csv/")
     print(f" - {summary_path}\n")
